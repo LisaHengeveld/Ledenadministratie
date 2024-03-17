@@ -1,0 +1,351 @@
+/************************************************** Algemeen *************************************************/
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300');
+html {
+    block-size: 100%;
+}
+
+body {
+    margin: 0;
+    block-size: 100%;
+    font-size: 1em;
+    line-height: 1.5em;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/*************************************************** Header ***************************************************/
+.page-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inline-size: 100%;
+    block-size: 80px;
+    background-color: #435d7d;
+    color: white;
+}
+
+/************************************************** Navigatie *************************************************/
+.main-nav ul {
+    position: fixed;
+    overflow: auto;
+    margin: 0;
+    inline-size: 15%;
+    block-size: 100%;
+    padding: 0;
+    background-color: #f1f1f1;
+    list-style-type: none;
+}
+  
+.main-nav li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000;
+}
+  
+.main-nav li a.active, .main-nav li a:hover:not(.active) {
+    border-inline-end: 5px solid #05D5FA;
+    background-color: #555;
+    color: white;
+}
+
+/* Knop voor uitloggen */
+.btn-logout {
+    position: fixed;
+    bottom: 45px;
+    left: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.btn-logout:hover {
+    color: #05D5FA;
+}
+
+/**************************************************** Main ****************************************************/
+main {
+    margin-inline-start: 15%;
+    padding: 20px 50px;
+}
+
+/**************************************************** Tabel ***************************************************/
+table {
+    margin: 25px 0;
+    border-collapse: collapse;
+    inline-size: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+thead tr {
+    display: table;
+    table-layout: fixed;
+    inline-size: 100%;
+    block-size: 55px;
+    background-color: #435d7d;
+    text-align: left;
+    color: #ffffff;
+}
+
+th {
+    position: sticky;
+    top: 0;
+}
+
+th:last-child {
+    inline-size: 155px;
+    text-align: right;
+}
+
+#contributietabel th:last-child {
+    text-align: left;
+}
+
+tbody {
+    display: block;
+    overflow-y: scroll;
+    overflow: auto;
+    inline-size: 100%;
+    max-block-size: calc(100vh - 280px);
+}
+
+tbody tr {
+    display: table;
+    table-layout: fixed;
+    border-block-end: 1px solid #dddddd;
+    inline-size: 100%;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+    border-block-end: 2px solid #435d7d;
+}
+
+td:last-child {
+    inline-size: 155px;
+}
+
+th, td {
+    padding: 12px 15px;
+}
+
+/* Knoppen CRUD */
+.btn-create {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #05D5FA;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-create:hover {
+    background-color: #04bfe1;
+}
+
+.fa-eye {
+    text-decoration: none;
+    color: green;
+}
+
+.fa-pen {
+    text-decoration: none;
+    color: orange;
+}
+
+.fa-trash {
+    text-decoration: none;
+    color: red;
+}
+
+.crud-icon {
+    position: relative;
+    margin: 0 12px;
+}
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.crud-icon:before {
+    content: attr(tooltip);
+    position: fixed;
+    z-index: 1;
+    display: inline-block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-40%, -110%);
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 5px;
+    padding: 3px 5px;
+    background-color: #555;
+    text-align: center;
+    color: #fff;
+}
+
+.crud-icon:hover:before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/************************************************* CRUD window ************************************************/
+/* (Wordt ook gebruikt voor inlogscherm) */
+.bg-modal {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inline-size: 100%;
+    block-size: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    border-radius: 5px;
+    inline-size: 500px;
+    background-color: white;
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin: 0;
+    border-radius: 5px 5px 0 0;
+    padding: 25px;
+    background-color: #435d7d;
+    color: white;
+}
+
+/* Formulier */
+.modal-content form {
+    margin: 20px;
+    font-size: 1.1em;
+}
+
+.modal-content input {
+    display: block;
+    margin: 15px auto;
+    outline: none;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    inline-size: 80%;
+    padding: 10px;
+    font-size: 1em;
+    font-family: inherit;
+}
+
+select {
+    display: flex;
+    appearance: none;
+    margin: 15px auto;
+    outline: none;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    inline-size: 85%;
+    padding: 10px;
+    background: url("data:image/svg+xml,<svg height='12px' width='12px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
+    background-position: calc(100% - 10px) center;
+    font-size: 1em;
+    font-family: inherit;
+}
+
+.modal-content input:focus, .modal-content select:focus{
+    border-color: #05D5FA;
+}
+
+.modal-content button {
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    inline-size: 120px;
+    block-size: 40px;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: 900;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background-color: #05D5FA;
+}
+
+.btn-submit:hover {
+    background-color: #04bfe1;
+}
+
+.btn-cancel {
+    background-color: red;
+}
+
+.btn-cancel:hover {
+    background-color: #e50000;
+}
+
+/* Prefix en suffix in inputvelden */
+.prefix, .suffix {
+    position: relative;
+}
+
+.percent {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.euro {
+    position: absolute;
+    top: 50px;
+    left: 50px; 
+}
+
+.prefix input {
+    text-indent: 23px;
+}
+
+/* Iconen inputvelden bij inlogscherm */
+#login input {
+    text-indent: 35px;
+}
+
+.prefix i {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    color: #05D5FA;
+}
+
+/* Foutmelding inlogscherm */
+.error-msg {
+    font-size: 0.8em;
+    color: red;
+}
+
+/* Verberg pijltjes bij numeriek inputveld voor Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Verberg pijltjes bij numeriek inputveld voor Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/*************************************************** Footer ***************************************************/
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inline-size: 100%;
+    block-size: 30px;
+    background-color: #999;
+    color: white;
+}
